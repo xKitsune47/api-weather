@@ -22,7 +22,7 @@ function lookupWeather() {
                         .querySelector(".forecast")
                         .setAttribute(
                             "style",
-                            "background-image: url(sunny.webp); background-repeat: no-repeat; height: inherit;"
+                            "background-image: url(sunny.webp); background-repeat: no-repeat;"
                         );
                 } else if (
                     description[0] !== "Rain" &&
