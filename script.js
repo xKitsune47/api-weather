@@ -1,4 +1,6 @@
-function cityToCoords() {
+"use strict";
+
+function lookupWeather() {
     const city = document.querySelector("#cityInput").value;
     if (city) {
         const cityObject = fetch(
@@ -8,10 +10,27 @@ function cityToCoords() {
             .then((output) => {
                 const description = output.weather.map((p) => p.main);
                 const windDirection = calculateWindDirection(output.wind.deg);
+                if (description[0] === "Rain" || description[0] === "Snow") {
+                    document
+                        .querySelector(".forecast")
+                        .setAttribute(
+                            "style",
+                            "background-image: url(rain.gif);"
+                        );
+                } else if (
+                    description[0] !== "Rain" &&
+                    description[0] !== "Snow"
+                ) {
+                    document
+                        .querySelector(".forecast")
+                        .removeAttribute("style");
+                }
                 document.querySelector(
                     "#temperature"
                 ).innerHTML = `Current temperature:<br> ${output.main.temp} ${unitsObject.temp}`;
-                document.querySelector("#city").innerHTML = output.name;
+                document.querySelector(
+                    "#city"
+                ).innerHTML = `<span id="cityPreamble">Chosen city:</span><br>${output.name}`;
                 document.querySelector(
                     "#clouds"
                 ).innerHTML = `Current cloudiness:<br> ${output.clouds.all}%`;

@@ -19,6 +19,7 @@ body {
 
 .chooseCity button:hover {
     cursor: pointer;
+    scale: 1.02;
 }
 
 .chooseCity button:active {
@@ -26,7 +27,7 @@ body {
     border: none;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1300px) {
     #header {
         background-color: #17301c;
         width: 100%;
@@ -38,9 +39,9 @@ body {
         padding: 1.5vh;
         font-size: 3vh;
     }
-
     #main {
         background-color: #c1d7ae;
+        /* opacity: 0.5; */
         height: 100%;
         display: flex;
         flex-direction: row;
@@ -52,6 +53,7 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
         }
 
         .chooseCity input[type="text"],
@@ -70,10 +72,6 @@ body {
             background-color: #c1d7ae;
         }
 
-        /* .chooseCity input[type="text"]:active {
-            jakos naprawic aktywowanie borderu na aktywnym inpucie 
-        } */
-
         .chooseCity button {
             width: 24rem;
             font-size: 1rem;
@@ -84,11 +82,20 @@ body {
             transition: all 0.2s;
         }
 
+        .rain {
+            background-image: url(rain.gif);
+            opacity: 0.2;
+            width: 50%;
+            height: inherit;
+        }
+
         .forecast {
             height: inherit;
             width: 50%;
         }
+
         .forecast p {
+            align-items: center;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
         }
@@ -122,5 +129,16 @@ body {
     }
 }
 
+@media only screen and (min-width: 1024px) and (max-width: 1299px) {
+    #main {
+        background-color: black;
+    }
+}
+
 @media only screen and (max-width: 1023px) {
+    #header {
+        background-color: #17301c;
+        color: #c1d7ae;
+        text-align: center;
+    }
 }
