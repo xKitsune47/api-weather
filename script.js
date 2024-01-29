@@ -17,6 +17,13 @@ function lookupWeather() {
                             "style",
                             "background-image: url(rain.gif);"
                         );
+                } else if (description[0] === "Clear") {
+                    document
+                        .querySelector(".forecast")
+                        .setAttribute(
+                            "style",
+                            "background-image: url(sunny.webp); background-repeat: no-repeat; height: inherit;"
+                        );
                 } else if (
                     description[0] !== "Rain" &&
                     description[0] !== "Snow"
