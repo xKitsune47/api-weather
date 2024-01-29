@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js"></script>
+        <title>Weather forecast</title>
+    </head>
+    <body>
+        <section id="header">
+            <div class="randomclass">
+                <h1>Weather forecast - API calling</h1>
+            </div>
+        </section>
+        <section id="main">
+            <div class="chooseCity">
+                <input type="text" id="cityInput" />
+                <button id="cityConfirm" onclick="cityToCoords()">
+                    Confirm
+                </button>
+                <button id="changeUnits" onclick="changeUnits()">
+                    <span id="units">Change to imperial</span>
+                </button>
+            </div>
+            <div class="forecast">
+                <p>
+                    <span id="city"></span>
+                    <span id="temperature"></span>
+                    <span id="temperatureFeelsLike"></span>
+                    <span id="mainWeatherConditions"></span>
+                    <span id="clouds"></span>
+                    <span id="windSpeed"></span>
+                    <span id="windDirection"></span>
+                </p>
+            </div>
+        </section>
+        <section id="footer">
+            <a href="https://github.com/xkitsune47" target="_blank">
+                <img src="github-logo.png" alt="github-logo" />
+            </a>
+        </section>
+    </body>
+</html>
