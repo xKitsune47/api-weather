@@ -10,28 +10,7 @@ function lookupWeather() {
             .then((output) => {
                 const description = output.weather.map((p) => p.main);
                 const windDirection = calculateWindDirection(output.wind.deg);
-                if (description[0] === "Rain" || description[0] === "Snow") {
-                    document
-                        .querySelector(".forecast")
-                        .setAttribute(
-                            "style",
-                            "background-image: url(rain.gif);"
-                        );
-                } else if (description[0] === "Clear") {
-                    document
-                        .querySelector(".forecast")
-                        .setAttribute(
-                            "style",
-                            "background-image: url(sunny.webp); background-repeat: no-repeat;"
-                        );
-                } else if (
-                    description[0] !== "Rain" &&
-                    description[0] !== "Snow"
-                ) {
-                    document
-                        .querySelector(".forecast")
-                        .removeAttribute("style");
-                }
+                adjustBackground(description[0]);
                 document.querySelector(
                     "#temperature"
                 ).innerHTML = `Current temperature:<br> ${output.main.temp} ${unitsObject.temp}`;
@@ -59,6 +38,27 @@ function lookupWeather() {
                     (document.querySelector("#city").innerHTML =
                         "Wrong city name, try again")
             );
+    }
+}
+
+function adjustBackground(weatherMain) {
+    if (weatherMain === "Rain" || weatherMain === "Snow") {
+        document
+            .querySelector(".forecast")
+            .setAttribute("style", "background-image: url(imgs/rain.gif);");
+    } else if (weatherMain === "Clear") {
+        document
+            .querySelector(".forecast")
+            .setAttribute(
+                "style",
+                "background-image: url(imgs/sunny.webp); background-repeat: no-repeat;"
+            );
+    } else if (
+        weatherMain !== "Rain" &&
+        weatherMain !== "Snow" &&
+        weatherMain !== "Clear"
+    ) {
+        document.querySelector(".forecast").removeAttribute("style");
     }
 }
 
